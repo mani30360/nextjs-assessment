@@ -1,0 +1,108 @@
+:root {
+  --color-bg: #f5f7fa;
+  --color-surface: #ffffff;
+  --color-border: #e2e8f0;
+  --color-text: #1a202c;
+  --color-text-muted: #64748b;
+  --color-primary: #2563eb;
+  --radius: 8px;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --max-width: 1200px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Header */
+.header {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+
+.header__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+/* Main */
+.main {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.page-title {
+  margin: 0 0 16px;
+  font-size: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+/* Card */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+.card__title {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.card__body {
+  color: var(--color-text-muted);
+}
+
+.card__body p {
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 24px;
+  }
+
+  .main {
+    padding-top: 32px;
+  }
+}
