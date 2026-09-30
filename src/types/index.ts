@@ -1,6 +1,3 @@
-export interface User {
-  id: number;
-  name: string;
-  email: string;
-  status: "active" | "inactive";
-}
+export type * from "./auth";
+export type * from "./cart";
+export type * from "./product";

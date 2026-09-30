@@ -1,22 +1,33 @@
 import type { Metadata } from "next";
-import Header from "@/components/common/Header";
+import { cookies } from "next/headers";
+import Header from "@/components/layout/Header";
+import { SESSION_COOKIE, verifySessionToken } from "@/lib/auth/session";
+import StoreProvider from "@/store/StoreProvider";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Dashboard",
-  description: "Next.js starter template",
+  title: {
+    default: "ShopDemo",
+    template: "%s · ShopDemo",
+  },
+  description: "Next.js + Redux Toolkit product catalogue and cart",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const user = await verifySessionToken(cookieStore.get(SESSION_COOKIE)?.value);
+
   return (
     <html lang="en">
       <body>
-        <Header title="Dashboard" />
-        <main className="container main">{children}</main>
+        <StoreProvider initialUser={user}>
+          <Header />
+          <main className="container main">{children}</main>
+        </StoreProvider>
       </body>
     </html>
   );

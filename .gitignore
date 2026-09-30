@@ -6,6 +6,6 @@
 *.pem
 npm-debug.log*
 .env*.local
-.env
+# .env is committed intentionally (demo-only values, see README)
 *.tsbuildinfo
 next-env.d.ts
